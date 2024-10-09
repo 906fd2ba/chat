@@ -6,3 +6,10 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 
 ## Deployed on Github Pages
 https://906fd2ba.github.io/chat/
+
+## Поддержка
+Рекомендуется использовать только современные браузеры последних версий, т.к. в проекте используется CSS Nesting и другие современные технологии.
+
+Сайт по ссылке выше должен выглядеть как на скрине ниже, иначе что-то сломалось.
+
+![preview](/docs/images/chat.png)
