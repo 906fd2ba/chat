@@ -13,7 +13,7 @@ const send = () => {
 
 <template>
   <form class="chat-controls" @submit.prevent="send">
-    <input type="text" class="chat-controls__input" v-model.trim="text" />
+    <textarea class="chat-controls__input" v-model.trim="text" @keydown.enter.exact.prevent="send" />
     <button>Отправить</button>
   </form>
 </template>
@@ -26,6 +26,7 @@ const send = () => {
 
   textarea {
     resize: none;
+    width: 100%;
   }
 
   input {
