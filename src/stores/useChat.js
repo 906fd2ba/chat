@@ -1,8 +1,9 @@
 import { ref } from 'vue';
+import { defineStore } from "pinia";
 import assignId from '@/utils/assignId.js';
 
-export default (initState = []) => {
-    const messages = ref([ ...initState ]);
+export default defineStore('events', () => {
+    const messages = ref([]);
 
     const addMessage = ({ user, message }) => {
         messages.value.push({
@@ -17,4 +18,4 @@ export default (initState = []) => {
         messages,
         addMessage,
     };
-}
+})
