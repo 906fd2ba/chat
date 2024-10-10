@@ -46,6 +46,7 @@ watch(props.messages, () => {
   align-items: self-start;
 
   .chat-item__text {
+    color: #FFFFFFDE;
     background: cadetblue;
     border-radius: 10px;
     padding: 10px;
