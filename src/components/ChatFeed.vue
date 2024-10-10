@@ -51,6 +51,7 @@ watch(props.messages, () => {
     border-radius: 10px;
     padding: 10px;
     max-width: 80%;
+    white-space: pre-line;
   }
 
   &.isMe {
