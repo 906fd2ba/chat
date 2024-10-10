@@ -20,8 +20,8 @@ bindEvent('newMessage', ({ message, user }) => {
 });
 
 // эмулируем отправку ивента по сокетам
-const sendMessage = ({ message, user }) => {
-  triggerEvent('newMessage', { message, user });
+const sendMessage = message => {
+  triggerEvent('newMessage', { message, user: props.user });
 };
 </script>
 
@@ -31,7 +31,7 @@ const sendMessage = ({ message, user }) => {
 
     <ChatFeed :user="user" :messages="messages" />
 
-    <ChatControls @sendMessage="sendMessage({ message: $event, user })" />
+    <ChatControls @sendMessage="sendMessage" />
   </div>
 </template>
 
