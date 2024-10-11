@@ -13,7 +13,7 @@ const { messages, addMessage } = useChat();
 const { bindEvent, triggerEvent } = useEvents();
 
 // эмулируем подписку на сокет ивент
-// если приходит новое сообщение по сокетам с сервера, то пишем его в стейт
+// если приходит новое сообщение по сокетам с сервера, то пишем его в стейт текущего чата
 bindEvent('newMessage', ({ message, user }) => {
   console.log(`Новое сообщение от пользователя ${user.name}: ${message}`);
   addMessage({ message, user });
@@ -29,9 +29,9 @@ const sendMessage = message => {
   <div class="chat">
     <div class="chat-user">Чат от лица {{ user.name }}</div>
 
-    <ChatFeed :user="user" :messages="messages" />
+    <ChatFeed v-bind="{ user, messages }" />
 
-    <ChatControls @sendMessage="sendMessage" />
+    <ChatControls v-on="{ sendMessage }" />
   </div>
 </template>
 
