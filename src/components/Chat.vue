@@ -1,4 +1,5 @@
 <script setup>
+import { provide } from "vue";
 import ChatFeed from "@/components/ChatFeed.vue";
 import ChatControls from "@/components/ChatControls.vue";
 import useChat from "@/composables/useChat.js";
@@ -7,6 +8,8 @@ const { user } = defineProps({
   user: { type: Object, required: true },
 });
 
+provide('app', { user });
+
 const { messages, sendMessage } = useChat(user);
 </script>
 
@@ -14,9 +17,9 @@ const { messages, sendMessage } = useChat(user);
   <div class="chat">
     <div class="chat-user">Чат от лица {{ user.name }}</div>
 
-    <ChatFeed v-bind="{ user, messages }" />
+    <ChatFeed v-bind="{ messages }" />
 
-    <ChatControls v-on="{ sendMessage }" />
+    <ChatControls @send="sendMessage" />
   </div>
 </template>
 

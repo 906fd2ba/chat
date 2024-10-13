@@ -1,7 +1,7 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
 
-export default defineStore('events', () => {
+export default () => defineStore('events', () => {
     const eventList = ref([]);
 
     const bindEvent = (type, callback) => {
@@ -26,4 +26,4 @@ export default defineStore('events', () => {
         unbindEvent,
         triggerEvent,
     };
-});
+})();

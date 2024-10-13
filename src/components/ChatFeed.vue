@@ -1,11 +1,11 @@
 <script setup>
-import { watch, useTemplateRef, nextTick } from "vue";
+import { inject, watch, useTemplateRef, nextTick } from "vue";
 
 const props = defineProps({
   messages: { type: Array, required: true },
-  user: { type: Object, required: true },
 });
 
+const { user } = inject('app');
 const feed = useTemplateRef('feed');
 
 watch(props.messages, () => {

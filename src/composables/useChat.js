@@ -16,13 +16,9 @@ export default (user, initState = []) => {
         });
     };
 
-    const sendMessage = message => {
-        triggerEvent('message', { message, user });
-    };
+    const sendMessage = message => triggerEvent('message', { message, user });
 
-    const onMessage = callback => {
-        bindEvent('message', data => callback(data));
-    };
+    const onMessage = callback => bindEvent('message', data => callback(data));
 
     onMessage(data => addMessage(data));
 
@@ -31,5 +27,7 @@ export default (user, initState = []) => {
         addMessage,
         sendMessage,
         onMessage,
+        bindEvent,
+        triggerEvent,
     };
 }

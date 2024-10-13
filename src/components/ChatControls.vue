@@ -1,14 +1,16 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 const text = ref('');
-const emit = defineEmits([ 'sendMessage' ]);
+const emit = defineEmits([ 'send', 'typing' ]);
 
 const send = () => {
   if (!text.value) return;
-  emit('sendMessage', text.value);
+  emit('send', text.value);
   text.value = '';
 }
+
+watch(text, () => emit('typing'));
 </script>
 
 <template>
