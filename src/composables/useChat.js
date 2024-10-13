@@ -7,16 +7,16 @@ export default (user, initState = []) => {
 
     const { bindEvent, triggerEvent } = useEvents();
 
-    const addMessage = ({ message, user }) => {
+    const addMessage = ({ body, sender }) => {
         messages.value.push({
             id: assignId(),
-            sender: user,
-            body: message,
+            sender,
+            body,
             timestamp: Date.now(),
         });
     };
 
-    const sendMessage = message => triggerEvent('message', { message, user });
+    const sendMessage = message => triggerEvent('message', { body: message, sender: user });
 
     const onMessage = callback => bindEvent('message', data => callback(data));
 
