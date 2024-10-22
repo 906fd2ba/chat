@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, readonly } from "vue";
 import { defineStore } from "pinia";
 
 export default () => defineStore('events', () => {
@@ -21,7 +21,7 @@ export default () => defineStore('events', () => {
     };
 
     return {
-        eventList,
+        eventList: readonly(eventList),
         bindEvent,
         unbindEvent,
         triggerEvent,
